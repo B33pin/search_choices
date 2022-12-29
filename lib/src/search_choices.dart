@@ -715,6 +715,8 @@ class SearchChoices<T> extends FormField<T> {
     List<int> selectedItems = const [],
     TextStyle? style,
     dynamic searchHint,
+    int maxLines = 1,
+    TextOverflow textOverflow = TextOverflow.ellipsis,
     dynamic hint,
     dynamic disabledHint,
     dynamic icon = const Icon(Icons.arrow_drop_down),
@@ -1378,11 +1380,17 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
     if ((list.isEmpty && hintIndex != null) ||
         (list.length == 1 && list.first is NotGiven)) {
       innerItemsWidget = items[hintIndex ?? 0];
+    } else if (list.length == 1) {
+      innerItemsWidget = widget.selectedAggregateWidgetFn != null
+          ? widget.selectedAggregateWidgetFn!(list)
+          : Row(
+              children: [list[0]],
+            );
     } else {
       innerItemsWidget = widget.selectedAggregateWidgetFn != null
           ? widget.selectedAggregateWidgetFn!(list)
-          : Column(
-              children: list,
+          : Row(
+              children: [list[0], Text('....'), Text(' +${list.length}')],
             );
     }
     final EdgeInsetsGeometry padding = ButtonTheme.of(context).alignedDropdown
