@@ -285,8 +285,7 @@ class SearchChoices<T> extends FormField<T> {
     BuildContext context,
     Widget Function({
       String searchTerms,
-    })
-        menuWidget,
+    }) menuWidget,
     String searchTerms,
   )? showDialogFn;
 
@@ -479,8 +478,7 @@ class SearchChoices<T> extends FormField<T> {
       Widget list,
       Widget closeButton,
       BuildContext dropDownContext,
-    )?
-        buildDropDownDialog,
+    )? buildDropDownDialog,
     EdgeInsets? dropDownDialogPadding,
     InputDecoration? searchInputDecoration,
     int? itemsPerPage,
@@ -509,11 +507,9 @@ class SearchChoices<T> extends FormField<T> {
       BuildContext context,
       Widget Function({
         String searchTerms,
-      })
-          menuWidget,
+      }) menuWidget,
       String searchTerms,
-    )?
-        showDialogFn,
+    )? showDialogFn,
     FormFieldSetter<T>? onSaved,
     AutovalidateMode autovalidateMode = AutovalidateMode.onUserInteraction,
     String? restorationId,
@@ -752,8 +748,7 @@ class SearchChoices<T> extends FormField<T> {
       Widget list,
       Widget closeButton,
       BuildContext dropDownContext,
-    )?
-        buildDropDownDialog,
+    )? buildDropDownDialog,
     EdgeInsets? dropDownDialogPadding,
     InputDecoration? searchInputDecoration,
     int? itemsPerPage,
@@ -783,11 +778,9 @@ class SearchChoices<T> extends FormField<T> {
       BuildContext context,
       Widget Function({
         String searchTerms,
-      })
-          menuWidget,
+      }) menuWidget,
       String searchTerms,
-    )?
-        showDialogFn,
+    )? showDialogFn,
     FormFieldSetter<T>? onSaved,
     String? Function(List<dynamic>)? listValidator,
     AutovalidateMode autovalidateMode = AutovalidateMode.onUserInteraction,
@@ -1006,10 +999,10 @@ class _SearchChoicesState<T> extends FormFieldState<T> {
   TextStyle get _textStyle =>
       widget.style ??
       (_enabled && !(widget.readOnly)
-          ? Theme.of(context).textTheme.subtitle1
+          ? Theme.of(context).textTheme.titleMedium
           : Theme.of(context)
               .textTheme
-              .subtitle1!
+              .titleMedium!
               .copyWith(color: _disabledIconColor)) ??
       TextStyle();
   bool get _enabled => widget.isEnabled;
